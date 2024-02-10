@@ -58,8 +58,57 @@
       // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
-
-    }
+      constructor(...x){
+        this.ints=x
+      }
+      getAll(){
+        return this.ints
+      }
+      getEvens(){
+        let even = []
+        for (let i=0; i< this.ints.length; i++) {
+          if(this.ints[i]%2 === 0){
+            even.push(this.ints[i])
+          }
+        }
+        return even
+      }
+       // 🧠 Implement a `getNegatives` method which returns an array with the integers that negative
+       getNegatives(){
+        let neg=[]
+        for(let i=0; i < this.ints.length; i++){
+          if(this.ints[i] < 0){
+            neg.push(this.ints[i])
+          }
+        }
+        return neg
+       }
+             // 🧠 Implement a `getAllSquared` method which returns an array with the integers squared
+       getAllSquared(){
+        let squared=[]
+        for(let i=0; i< this.ints.length; i++){
+          squared.push(this.ints[i] * this.ints[i])
+        }
+        return squared
+      }
+            // 🧠 Implement a `pop` method which removes the last integer from `ints`  and returns it
+      
+      pop(){
+        let p= this.ints
+        return p.pop()
+      }
+      // 🧠 Implement a `push` method which takes an int and pushes it to the end of `ints`, and returns the updated `ints` property
+      push(x){
+       let mod= this.ints.concat(x)
+       return mod
+      }
+     
+      // 🧠 Implement a `getEveryNth` method which takes an int `n` and returns an array with the ints at position 0, n, n + n, n + n + n, etc
+     
+      // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
+   }
+      
+          
 
     // 👉 CHALLENGE 2 NerfGun
     class NerfGun {
