@@ -183,23 +183,34 @@
       // 🧠 Constructor takes two arguments:
       //      * First arg is a string with the whole text of the book
       //      * Second arg is the number of characters contained in a single page of the book
+      
       constructor(x, y){
+        this.pages=y
         this.book=x
-        this.page=this.book.slice(y)
+        this.current=0
+      
+      }
+      currentPage(){
+        return this.book.slice(this.current, this.current + this.pages)
       }
         
         // 🧠 Instances have a `next` method:
         //      * It takes no args and returns the next page of the book
         //      * If the next page is empty because we have reached the end, return null instead
       next(){
-
+        this.current += this.pages
+        if(this.current> this.book.length){
+          return null
+        }else {
+         return this.currentPage()
+        }
       }
-
       // 🧠 Example of usage:
       //    const ebook = new EBook('abcdefg', 3)
       //    ebook.next() // returns "abc"
       //    ebook.next() // returns "def"
-      //    ebook.next() // returns "g"
+      //    ebook.next() // returns "g".        
+         
       //    ebook.next() // returns null
       // 🌟 HINT: remember about the `slice` method which strings and arrays have
       // ❗ Feel free to implement `back`, although this is not required nor graded
