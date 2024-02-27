@@ -99,17 +99,17 @@
       }
       // 🧠 Implement a `push` method which takes an int and pushes it to the end of `ints`, and returns the updated `ints` property
       push(x){
-       let mod= this.ints.concat(x)
-       return mod
+      this.ints.push(x)
+      return this.ints
       }
      
       // 🧠 Implement a `getEveryNth` method which takes an int `n` and returns an array with the ints at position 0, n, n + n, n + n + n, etc
-     getEveryNth(){
+     getEveryNth(n){
       let arrr = []
-      let x=0
-      for(let i=0; i<this.ints.length; i++){
-       // arrr= this.ints.push()
-       // x+=x
+    
+      for(let i=0; i<this.ints.length; i= i+n){
+        arrr.push(this.ints[i])
+        
       }
       return arrr
      }
@@ -220,18 +220,38 @@
     // 👉 CHALLENGE 4 AntFarm
     class AntFarm {
       // 🧠 Constructor takes **any** number of arguments, which are strings: the names of your ants
+      constructor(...name){
       // 🧠 Instances of AntFarm have an `ants` property holding an array of ants:
       //      * Each ant is an object with a `name` prop and a `health` prop that starts at 100
+        this.name=name;
+        this.health=100
+      }
+     
       // 🧠 Instances of AntFarm have a `work` method:
       //      * When invoked your ants do chores at a cost of 20 health points each
       //      * The method takes no arguments and returns the string "<ant number> ants starting work!"
       //      * If the `health` of any ant decreases to zero or below, it dies and is removed from `ants`
       //      * If `ants` contains no ants, the method returns "No ants here. Did you work them to death?"
+      work(){
+        if(!this.ants.length){
+          return "No ants here. Did you work them to death?"
+        }else{
+          return `${ants.length} ants starting work!`
+        }
+        
+      }
       // 🧠 Instances of AntFarm have a `feed` method:
       //      * The method takes as its only argument the name of the particular ant(s) to feed
       //      * When invoked, the ant(s) by the given name obtain a health increase of 15 points
       //      * The method returns the string "Yum!" if any ants by the given name exist
       //      * The method returns the string "<ant name> not found!" if no ants by the given name exist
+      feed(name){
+        if(!name){
+          return `${this.name} not found!`
+        }else{
+          return "Yum!"
+        }
+      }
       // 🌟 Example:
       //      const farm = new AntFarm('Jess', 'Blake');
       //      farm.ants;         // evaluates to [{name: 'Jess', health: 100}, {name: 'Blake', health: 100}]
@@ -249,8 +269,8 @@
       //      console.log(list) // prints ["a"]
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
-
-    }
+      }
+    
 
     // 🧪 TESTS, do not make any changes below this line ===================
     // 🧪 TESTS, do not make any changes below this line ===================
